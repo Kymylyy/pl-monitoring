@@ -70,4 +70,4 @@ python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
 
 ## Licencja
 
-MIT
+Proprietary - All Rights Reserved
