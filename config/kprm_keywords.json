@@ -1,0 +1,34 @@
+{
+  "kategorie": {
+    "finansowe": [
+      "finansowy",
+      "budżet",
+      "podatek",
+      "opłata",
+      "składka",
+      "dotacja",
+      "subwencja",
+      "dofinansowanie",
+      "pomoc finansowa",
+      "środki finansowe",
+      "fundusz",
+      "kredyt",
+      "pożyczka",
+      "zadłużenie",
+      "dług",
+      "deficyt",
+      "przychód",
+      "dochód",
+      "wydatek",
+      "koszt",
+      "finansowanie",
+      "płatność",
+      "rozliczenie",
+      "rozrachunek"
+    ],
+    "template": [
+      "template"
+    ]
+  }
+}
+

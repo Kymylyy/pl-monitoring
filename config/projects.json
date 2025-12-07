@@ -1,0 +1,181 @@
+{
+  "projects": [
+    {
+      "id": 12382311,
+      "title": "Projekt ustawy o rynku kryptoaktywów",
+      "number": "UC2",
+      "source": "rcl",
+      "last_hit": "2025-08-14"
+    },
+    {
+      "id": 12404952,
+      "title": "Projekt ustawy o zmianie ustawy – Prawo upadłościowe",
+      "number": "UD260",
+      "source": "rcl",
+      "last_hit": "2025-12-05"
+    },
+    {
+      "id": "1262",
+      "title": "Ustawa DORA",
+      "number": "1262",
+      "source": "sejm",
+      "term": 10,
+      "referred_to": [
+        {
+          "date": "2025-05-12",
+          "stage_type": "Projekt wpłynął do Sejmu -druk nr 1262",
+          "print_number": "1262"
+        },
+        {
+          "date": "2025-05-19",
+          "stage_type": "Skierowano do I czytania w komisjach",
+          "description": "do Komisji Finansów Publicznych.  Termin przedstawienia sprawozdania do dnia 24-06-2025"
+        },
+        {
+          "date": "2025-06-03",
+          "stage_type": "I czytanie w komisjach"
+        },
+        {
+          "date": "2025-06-03",
+          "stage_type": "Sprawozdanie komisjidruk nr 1326",
+          "print_number": "1326",
+          "description": "Sprawozdawca: Marek Sowa | Wnioski mniejszości: 2 | Wniosek komisji: załączony projekt ustawy"
+        },
+        {
+          "date": "2025-06-24",
+          "stage_type": "II czytanie na posiedzeniu Sejmu",
+          "sitting_number": "37",
+          "decision": "skierowano ponownie do komisji w celu przedstawienia sprawozdania",
+          "description": "Nr posiedzenia:37 | Decyzja: skierowano ponownie do komisji w celu przedstawienia sprawozdania | Skierowano do: Komisji Finansów Publicznych | Komentarz:poprawki",
+          "comment": "poprawki"
+        },
+        {
+          "date": "2025-06-25",
+          "stage_type": "Sprawozdanie komisjidruk nr 1326-A",
+          "print_number": "1326",
+          "description": "Sprawozdawca: Marek Sowa | Wniosek komisji: odrzucić poprawki"
+        },
+        {
+          "date": "2025-06-25",
+          "stage_type": "III czytanie na posiedzeniu Sejmu",
+          "sitting_number": "37",
+          "decision": "uchwalono",
+          "voting_result": "231 za, 193 przeciw, 5 wstrzymało się(głos. nr 23)",
+          "description": "Nr posiedzenia:37 | Głosowanie: całość projektu ustawy | Wynik: 231 za, 193 przeciw, 5 wstrzymało się(głos. nr 23) | Decyzja: uchwalono | Komentarz: wnioski mniejszości, poprawki | Tekst ustawy po III czytaniuTekst ustawy po III czytaniu w formacie pdf",
+          "comment": "wnioski mniejszości, poprawki"
+        },
+        {
+          "date": "2025-06-27",
+          "stage_type": "Ustawę przekazano Prezydentowi i Marszałkowi Senatu"
+        },
+        {
+          "date": "2025-07-17",
+          "stage_type": "Stanowisko Senatu",
+          "description": "Nie wniósł poprawek | Nie wniósł poprawek"
+        },
+        {
+          "date": "2025-07-21",
+          "stage_type": "Ustawę przekazano Prezydentowi do podpisu"
+        },
+        {
+          "date": "2025-07-31",
+          "stage_type": "Prezydent podpisał ustawę"
+        }
+      ],
+      "last_hit": "2025-07-31"
+    },
+    {
+      "id": "1424",
+      "title": "Projekt ustawy o rynku kryptoaktywów",
+      "number": "1424",
+      "source": "sejm",
+      "term": 10,
+      "last_hit": "2025-12-05",
+      "referred_to": [
+        {
+          "date": "2025-06-26",
+          "stage_type": "Projekt wpłynął do Sejmu -druk nr 1424",
+          "print_number": "1424"
+        },
+        {
+          "date": "2025-07-07",
+          "stage_type": "Skierowano do I czytania na posiedzeniu Sejmu"
+        },
+        {
+          "date": "2025-07-23",
+          "stage_type": "I czytanie na posiedzeniu Sejmu",
+          "sitting_number": "39",
+          "voting_result": "188 za, 228 przeciw, 3 wstrzymało się(głos. nr 11)",
+          "description": "Nr posiedzenia:39 | Skierowano do: Komisji Finansów Publicznych.  Termin przedstawienia sprawozdania do dnia 09-09-2025. Prolongata do dnia 24-09-2025. | Głosowanie: wniosek o odrzucenie projektu ustawy w pierwszym czytaniu | Wynik: 188 za, 228 przeciw, 3 wstrzymało się(głos. nr 11)"
+        },
+        {
+          "date": "2025-09-23",
+          "stage_type": "Sprawozdanie komisjidruk nr 1720",
+          "print_number": "1720",
+          "description": "Sprawozdawca: Krystyna Skowrońska | Wnioski mniejszości: 20 | Wniosek komisji: załączony projekt ustawy"
+        },
+        {
+          "date": "2025-09-24",
+          "stage_type": "II czytanie na posiedzeniu Sejmu",
+          "sitting_number": "41",
+          "decision": "niezwłocznie przystąpiono do III czytania",
+          "description": "Nr posiedzenia:41 | Decyzja: niezwłocznie przystąpiono do III czytania"
+        },
+        {
+          "date": "2025-09-26",
+          "stage_type": "III czytanie na posiedzeniu Sejmu",
+          "sitting_number": "41",
+          "decision": "uchwalono",
+          "voting_result": "230 za, 196 przeciw, 0 wstrzymało się(głos. nr 63)",
+          "description": "Nr posiedzenia:41 | Głosowanie: całość projektu ustawy | Wynik: 230 za, 196 przeciw, 0 wstrzymało się(głos. nr 63) | Decyzja: uchwalono | Komentarz: wnioski mniejszości | Tekst ustawy po III czytaniuTekst ustawy po III czytaniu w formacie pdf",
+          "comment": "wnioski mniejszości"
+        },
+        {
+          "date": "2025-09-29",
+          "stage_type": "Ustawę przekazano Prezydentowi i Marszałkowi Senatu"
+        },
+        {
+          "date": "2025-10-16",
+          "stage_type": "Stanowisko Senatu",
+          "description": "Uchwała Senatudruk nr 1843 | Wniósł poprawki | Skierowano do: Komisji Finansów Publicznych dnia 17-10-2025"
+        },
+        {
+          "date": "2025-11-06",
+          "stage_type": "Sprawozdanie komisjidruk nr 1915",
+          "print_number": "1915",
+          "description": "Sprawozdawca: Krystyna Skowrońska | Wniosek komisji: przyjąć część poprawek"
+        },
+        {
+          "date": "2025-11-07",
+          "stage_type": "Rozpatrywanie na forum Sejmu stanowiska Senatu",
+          "sitting_number": "44",
+          "decision": "przyjęto część poprawek",
+          "description": "Nr posiedzenia:44 | Decyzja: przyjęto część poprawek"
+        },
+        {
+          "date": "2025-11-12",
+          "stage_type": "Ustawę przekazano Prezydentowi do podpisu"
+        },
+        {
+          "date": "2025-12-01",
+          "stage_type": "Wniosek Prezydenta (VETO)",
+          "description": "wniosek o ponowne rozpatrzeniedruk nr 2048 | Skierowano do: Komisji Finansów Publicznych dnia 03-12-2025"
+        },
+        {
+          "date": "2025-12-04",
+          "stage_type": "Sprawozdanie komisjidruk nr 2059",
+          "print_number": "2059",
+          "description": "Sprawozdawca: Krystyna Skowrońska | Wniosek komisji: uchwalić ponownie"
+        },
+        {
+          "date": "2025-12-05",
+          "stage_type": "Rozpatrywanie na forum Sejmu wniosku Prezydenta",
+          "sitting_number": "46",
+          "decision": "nieuchwalona ponownie",
+          "voting_result": "243 za, 192 przeciw, 0 wstrzymało się(głos. nr 75)",
+          "description": "Nr posiedzenia:46 | Głosowanie: wniosek o ponowne uchwalenie ustawy w brzmieniu dotychczasowym | Wynik: 243 za, 192 przeciw, 0 wstrzymało się(głos. nr 75) | Decyzja: nieuchwalona ponownie"
+        }
+      ]
+    }
+  ]
+}
