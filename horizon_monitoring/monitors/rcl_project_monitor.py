@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from ..constants import RCL_BASE_URL, HTTP_TIMEOUT
 from ..exceptions import RCLConnectionError, DataParseError
 from ..utils.date_utils import parse_polish_date
-from ..utils.http_client import get_http_headers
+from ..utils.http_client import get_http_headers, retry_request
 from ..utils.logger import get_logger
 from ..utils.project_utils import filter_projects_by_source, ensure_source_field
 
@@ -169,7 +169,11 @@ class RCLProjectMonitor:
         headers = get_http_headers()
         
         try:
-            response = requests.get(url, headers=headers, timeout=HTTP_TIMEOUT)
+            response = retry_request(
+                lambda: requests.get(url, headers=headers, timeout=HTTP_TIMEOUT),
+                max_retries=3,
+                retry_delay=1.0
+            )
             response.raise_for_status()
             return BeautifulSoup(response.content, 'html.parser')
         except requests.RequestException as e:

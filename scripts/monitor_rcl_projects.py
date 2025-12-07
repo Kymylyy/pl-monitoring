@@ -43,6 +43,12 @@ def main():
         print("Użyj formatu: YYYY-MM-DD")
         sys.exit(1)
     
+    # Walidacja dat
+    if start_date > end_date:
+        logger.error(f"Data początkowa ({start_date.strftime('%Y-%m-%d')}) jest późniejsza niż data końcowa ({end_date.strftime('%Y-%m-%d')})")
+        print(f"Błąd: Data początkowa nie może być późniejsza niż data końcowa")
+        sys.exit(1)
+    
     # Monitoring
     try:
         monitor = RCLProjectMonitor()

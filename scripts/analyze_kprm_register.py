@@ -82,6 +82,11 @@ def main():
         print("Format dat: YYYY-MM-DD")
         sys.exit(1)
     
+    # Walidacja dat
+    if start_date > end_date:
+        print(f"Błąd: Data początkowa ({start_date.strftime('%Y-%m-%d')}) nie może być późniejsza niż data końcowa ({end_date.strftime('%Y-%m-%d')})")
+        sys.exit(1)
+    
     # Wczytaj kategorie i słowa kluczowe
     keywords_by_category = load_kprm_keywords()
     

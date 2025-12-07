@@ -11,7 +11,7 @@ from ..constants import SEJM_WWW_BASE_URL, SEJM_PROCESS_URL_TEMPLATE, HTTP_TIMEO
 from ..exceptions import SejmConnectionError, DataParseError
 from ..utils.project_utils import filter_projects_by_source
 from ..utils.date_utils import parse_polish_date_full
-from ..utils.http_client import get_http_headers
+from ..utils.http_client import get_http_headers, retry_request
 from ..utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -155,7 +155,11 @@ class SejmProjectMonitor:
         headers = get_http_headers()
         
         try:
-            response = requests.get(url, headers=headers, timeout=HTTP_TIMEOUT)
+            response = retry_request(
+                lambda: requests.get(url, headers=headers, timeout=HTTP_TIMEOUT),
+                max_retries=3,
+                retry_delay=1.0
+            )
             response.raise_for_status()
             return BeautifulSoup(response.content, 'html.parser')
         except requests.RequestException as e:

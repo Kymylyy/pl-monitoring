@@ -39,6 +39,11 @@ def main():
         print("Użyj formatu: YYYY-MM-DD")
         sys.exit(1)
     
+    # Walidacja dat
+    if start_date > end_date:
+        print(f"Błąd: Data początkowa ({start_date.strftime('%Y-%m-%d')}) nie może być późniejsza niż data końcowa ({end_date.strftime('%Y-%m-%d')})")
+        sys.exit(1)
+    
     # Monitoring
     monitor = SejmProjectMonitor()
     monitor.monitor(start_date, end_date)
