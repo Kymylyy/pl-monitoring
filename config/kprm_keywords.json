@@ -1,34 +1,20 @@
 {
   "kategorie": {
-    "finansowe": [
-      "finansowy",
-      "budżet",
-      "podatek",
-      "opłata",
-      "składka",
-      "dotacja",
-      "subwencja",
-      "dofinansowanie",
-      "pomoc finansowa",
-      "środki finansowe",
-      "fundusz",
-      "kredyt",
-      "pożyczka",
-      "zadłużenie",
-      "dług",
-      "deficyt",
-      "przychód",
-      "dochód",
-      "wydatek",
-      "koszt",
-      "finansowanie",
-      "płatność",
-      "rozliczenie",
-      "rozrachunek"
+    "implementacja_ue": [
+      "2023/2225",
+      "dyrektywa 2023/2225",
+      "dyrektywa Parlamentu Europejskiego i Rady (UE) 2023/2225",
+      "umów o kredyt konsumencki",
+      "kredyt konsumencki",
+      "implementacja dyrektywy 2023/2225",
+      "2023/2673",
+      "dyrektywa 2023/2673",
+      "dyrektywa Parlamentu Europejskiego i Rady (UE) 2023/2673",
+      "usługi finansowe zawierane na odległość",
+      "implementacja dyrektywy 2023/2673"
     ],
     "template": [
       "template"
     ]
   }
 }
-

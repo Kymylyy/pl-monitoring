@@ -4,41 +4,40 @@
 
 System monitoruje projekty legislacyjne w Polsce na trzech poziomach:
 
-1. **RCL** - Rządowy Proces Legislacyjny (przygotowanie projektu)
-2. **Sejm** - Proces legislacyjny w Sejmie (czytania, głosowania, decyzje Senatu/Prezydenta)
-3. **KPRM** - Rejestr prac legislacyjnych (analiza tekstowa)
+1. **KPRM** - Rejestr prac legislacyjnych (identyfikacja projektów implementujących akty UE)
+2. **RCL** - Rządowy Proces Legislacyjny (identyfikacja po hasłach przedmiotowych, monitoring konkretnych projektów)
+3. **Sejm** - Proces legislacyjny w Sejmie (monitoring pełnego przebiegu procesu)
 
-## Dlaczego trzy źródła?
+## Dlaczego taka kolejność?
 
-- **RCL** - śledzimy projekty od początku, zanim trafią do Sejmu
-- **Sejm** - pełny przebieg procesu (nie tylko druki, ale wszystkie etapy: głosowania, decyzje)
-- **KPRM** - wyszukiwanie projektów po słowach kluczowych w opisach (gdy nie znamy konkretnego projektu)
+- **KPRM** - punkt startowy: znajdź projekty implementujące konkretne dyrektywy/rozporządzenia UE (np. "2023/2225")
+- **RCL** - dwa poziomy: najpierw identyfikacja po hasłach przedmiotowych, potem monitoring konkretnych projektów
+- **Sejm** - finalny etap: śledzenie pełnego przebiegu procesu legislacyjnego
 
 ## Podstawowe użycie
 
-### 1. Monitoring konkretnych projektów RCL
+### 1. Analiza rejestru KPRM (identyfikacja projektów UE)
 
 ```bash
-python scripts/monitor_rcl_projects.py 2025-01-01 2025-12-31
+# Pobierz aktualny rejestr
+python scripts/fetch_kprm_register.py
+
+# Przeanalizuj po numerach aktów UE i słowach kluczowych
+python scripts/analyze_kprm_register.py 2025-01-01 2025-12-31
 ```
 
-**Kiedy używać:** Masz konkretne projekty RCL (znasz ID) i chcesz śledzić ich zmiany.
+**Kiedy używać:** Chcesz znaleźć projekty implementujące konkretne akty prawne UE (np. dyrektywa 2023/2225 o kredycie konsumenckim).
 
-**Konfiguracja:** `config/projects.json` - dodaj projekty z `source: "rcl"`
+**Konfiguracja:** `config/kprm_keywords.json` - dodaj numery dyrektyw/rozporządzeń UE i kluczowe słowa
 
-### 2. Monitoring konkretnych projektów Sejm
+**Dlaczego konkretne numery aktów UE?** Projekty implementujące dyrektywy UE zawierają w opisach konkretne numery aktów (np. "2023/2225", "dyrektywa 2023/2225"). To najpewniejszy sposób na znalezienie projektów wdrożeniowych.
 
-```bash
-python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
-```
+**Przykład:** Aby znaleźć projekty implementujące dyrektywę o kredycie konsumenckim, dodaj do konfiguracji:
+- `"2023/2225"` - numer dyrektywy
+- `"dyrektywa 2023/2225"` - pełna nazwa
+- `"kredyt konsumencki"` - temat projektu
 
-**Kiedy używać:** Masz konkretne projekty Sejm (znasz numer druku) i chcesz śledzić pełny przebieg procesu.
-
-**Konfiguracja:** `config/projects.json` - dodaj projekty z `source: "sejm"`
-
-**Dlaczego scraping HTML?** API Sejmu (`/processes`) nie jest aktualizowane, a `/prints` pokazuje tylko druki, nie pełny przebieg. Strona HTML zawiera wszystkie etapy: głosowania, decyzje Senatu, Prezydenta.
-
-### 3. Monitoring aktów RCL po hasłach przedmiotowych
+### 2. Monitoring aktów RCL po hasłach przedmiotowych (identyfikacja)
 
 ```bash
 python scripts/monitor_rcl_tags.py 2025-01-01 2025-12-31
@@ -50,21 +49,31 @@ python scripts/monitor_rcl_tags.py 2025-01-01 2025-12-31
 
 **Dlaczego hasła przedmiotowe?** Oficjalna kategoryzacja RCL - precyzyjne wyniki, nie zależne od słów w tekście.
 
-### 4. Analiza rejestru KPRM
+**To pierwszy poziom RCL** - identyfikacja projektów, które mogą być związane z tematem.
+
+### 3. Monitoring konkretnych projektów RCL (monitoring)
 
 ```bash
-# Pobierz aktualny rejestr
-python scripts/fetch_kprm_register.py
-
-# Przeanalizuj po słowach kluczowych
-python scripts/analyze_kprm_register.py 2025-01-01 2025-12-31
+python scripts/monitor_rcl_projects.py 2025-01-01 2025-12-31
 ```
 
-**Kiedy używać:** Chcesz znaleźć projekty zawierające określone słowa w opisach (np. "budżet", "podatek").
+**Kiedy używać:** Masz konkretne projekty RCL (znasz ID) i chcesz śledzić ich zmiany.
 
-**Konfiguracja:** `config/kprm_keywords.json` - dodaj kategorie i słowa kluczowe
+**Konfiguracja:** `config/projects.json` - dodaj projekty z `source: "rcl"`
 
-**Dlaczego słowa kluczowe?** Wyszukiwanie semantyczne - znajdziesz projekty związane z tematem, nawet jeśli nie są oficjalnie skategoryzowane.
+**To drugi poziom RCL** - monitoring znalezionych projektów.
+
+### 4. Monitoring konkretnych projektów Sejm
+
+```bash
+python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
+```
+
+**Kiedy używać:** Masz konkretne projekty Sejm (znasz numer druku) i chcesz śledzić pełny przebieg procesu.
+
+**Konfiguracja:** `config/projects.json` - dodaj projekty z `source: "sejm"`
+
+**Dlaczego scraping HTML?** API Sejmu (`/processes`) nie jest aktualizowane, a `/prints` pokazuje tylko druki, nie pełny przebieg. Strona HTML zawiera wszystkie etapy: głosowania, decyzje Senatu, Prezydenta.
 
 ## Format dat
 
@@ -74,15 +83,15 @@ Przykład: `2025-01-01`
 
 ## Wyniki
 
+- **KPRM:** Zapis do `data/register_results.json` - lista projektów zawierających numery aktów UE/słowa kluczowe
+- **Tagi RCL:** Zapis do `data/financial_results.json` - lista aktów z określonym hasłem przedmiotowym
 - **Projekty RCL/Sejm:** Automatyczna aktualizacja `config/projects.json` z polem `last_hit`
 - **Projekty Sejm:** Dodatkowo pole `referred_to` z pełnym przebiegiem procesu
-- **Tagi RCL:** Zapis do `data/financial_results.json`
-- **KPRM:** Zapis do `data/register_results.json`
 
 ## Typowy workflow
 
-1. **Znajdź projekty** - użyj monitoringu tagów RCL lub analizy KPRM
-2. **Dodaj do konfiguracji** - skopiuj ID/numer do `config/projects.json`
-3. **Monitoruj zmiany** - uruchamiaj regularnie monitoring projektów
-4. **Śledź przebieg** - dla projektów Sejm sprawdzaj `referred_to` z pełnym przebiegiem
-
+1. **Identyfikacja w KPRM** - znajdź projekty implementujące konkretne akty UE (np. "2023/2225")
+2. **Identyfikacja w RCL** - użyj monitoringu tagów RCL, aby znaleźć projekty z określonym hasłem przedmiotowym
+3. **Dodaj do konfiguracji** - skopiuj ID/numer do `config/projects.json`
+4. **Monitoruj zmiany** - uruchamiaj regularnie monitoring projektów RCL i Sejm
+5. **Śledź przebieg** - dla projektów Sejm sprawdzaj `referred_to` z pełnym przebiegiem procesu

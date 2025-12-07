@@ -1,12 +1,12 @@
 # Horizon Monitoring
 
-System monitoringu projektów legislacyjnych w Polsce - śledzenie zmian w projektach ustaw od etapu RCL, przez Sejm, aż do decyzji Prezydenta.
+System monitoringu projektów legislacyjnych w Polsce - śledzenie zmian w projektach ustaw od etapu KPRM, przez RCL, aż do Sejmu i decyzji Prezydenta.
 
 ## Co monitorujemy?
 
-- **RCL** - Rządowy Proces Legislacyjny (przygotowanie projektu)
-- **Sejm** - Pełny przebieg procesu legislacyjnego (czytania, głosowania, decyzje Senatu/Prezydenta)
-- **KPRM** - Rejestr prac legislacyjnych (analiza tekstowa)
+1. **KPRM** - Rejestr prac legislacyjnych (identyfikacja projektów implementujących akty UE)
+2. **RCL** - Rządowy Proces Legislacyjny (identyfikacja po hasłach przedmiotowych, monitoring konkretnych projektów)
+3. **Sejm** - Pełny przebieg procesu legislacyjnego (czytania, głosowania, decyzje Senatu/Prezydenta)
 
 ## Szybki start
 
@@ -23,18 +23,18 @@ playwright install chromium
 ### Podstawowe użycie
 
 ```bash
-# Monitoring projektów RCL
-python scripts/monitor_rcl_projects.py 2025-01-01 2025-12-31
-
-# Monitoring projektów Sejm
-python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
-
-# Monitoring aktów RCL po hasłach przedmiotowych
-python scripts/monitor_rcl_tags.py 2025-01-01 2025-12-31
-
-# Analiza rejestru KPRM
+# 1. Analiza rejestru KPRM (identyfikacja projektów UE)
 python scripts/fetch_kprm_register.py
 python scripts/analyze_kprm_register.py 2025-01-01 2025-12-31
+
+# 2. Monitoring aktów RCL po hasłach przedmiotowych (identyfikacja)
+python scripts/monitor_rcl_tags.py 2025-01-01 2025-12-31
+
+# 3. Monitoring konkretnych projektów RCL (monitoring)
+python scripts/monitor_rcl_projects.py 2025-01-01 2025-12-31
+
+# 4. Monitoring konkretnych projektów Sejm
+python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
 ```
 
 📖 **Szczegółowa instrukcja:** Zobacz [USAGE.md](USAGE.md)
@@ -57,9 +57,9 @@ horizon-monitoring/
 
 System używa 3 plików konfiguracyjnych JSON:
 
+- `config/kprm_keywords.json` - Numery aktów UE i słowa kluczowe do wyszukiwania w KPRM
+- `config/rcl_subject_tags.json` - Hasła przedmiotowe RCL (identyfikacja)
 - `config/projects.json` - Lista projektów do monitorowania (RCL + Sejm)
-- `config/kprm_keywords.json` - Słowa kluczowe do wyszukiwania w KPRM
-- `config/rcl_subject_tags.json` - Hasła przedmiotowe RCL
 
 📖 **Szczegółowy przewodnik:** Zobacz [CONFIGURATION_GUIDE.md](CONFIGURATION_GUIDE.md)
 
