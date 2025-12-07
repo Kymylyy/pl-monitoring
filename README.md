@@ -4,7 +4,7 @@ System monitoringu projektów legislacyjnych w Polsce - śledzenie zmian w proje
 
 ## Co monitorujemy?
 
-1. **KPRM** - Rejestr prac legislacyjnych (identyfikacja projektów implementujących akty UE)
+1. **KPRM** - Rejestr prac legislacyjnych (analiza tekstowa, w szczególności identyfikacja projektów implementujących akty UE)
 2. **RCL** - Rządowy Proces Legislacyjny (identyfikacja po hasłach przedmiotowych, monitoring konkretnych projektów)
 3. **Sejm** - Pełny przebieg procesu legislacyjnego (czytania, głosowania, decyzje Senatu/Prezydenta)
 
@@ -20,7 +20,7 @@ playwright install chromium
 ### Podstawowe użycie
 
 ```bash
-# 1. Analiza rejestru KPRM (identyfikacja projektów UE)
+# 1. Analiza rejestru KPRM (analiza tekstowa, identyfikacja projektów UE)
 python scripts/fetch_kprm_register.py
 python scripts/analyze_kprm_register.py 2025-01-01 2025-12-31
 
