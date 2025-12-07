@@ -13,10 +13,7 @@ System monitoringu projektów legislacyjnych w Polsce - śledzenie zmian w proje
 ### Instalacja
 
 ```bash
-# Instalacja pakietu
 pip install -e .
-
-# Instalacja przeglądarki Playwright (wymagana)
 playwright install chromium
 ```
 
@@ -37,49 +34,37 @@ python scripts/monitor_rcl_projects.py 2025-01-01 2025-12-31
 python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
 ```
 
-📖 **Szczegółowa instrukcja:** Zobacz [USAGE.md](USAGE.md)
+📖 **Szczegółowa instrukcja:** [USAGE.md](USAGE.md)  
+📖 **Przewodnik konfiguracji:** [CONFIGURATION_GUIDE.md](CONFIGURATION_GUIDE.md)
 
-## Struktura projektu
+## Planowane funkcjonalności
 
-```
-horizon-monitoring/
-├── horizon_monitoring/    # Główny pakiet Python
-│   ├── monitors/          # Moduły monitoringu (RCL, Sejm)
-│   ├── fetchers/          # Pobieranie danych (KPRM)
-│   ├── analyzers/         # Analiza danych
-│   └── utils/             # Narzędzia pomocnicze
-├── scripts/               # Skrypty uruchomieniowe
-├── config/                # Pliki konfiguracyjne JSON
-└── data/                  # Wyniki i dane
-```
+### Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych
 
-## Konfiguracja
+**Status:** W planach
 
-System używa 3 plików konfiguracyjnych JSON:
+**Cel:** Wyszukiwanie projektów w RCL po:
+- Numerze i tytule aktu prawnego Unii Europejskiej (np. "2023/2225")
+- Numerze z wykazu prac legislacyjnych KPRM (np. "UD260", "UC2")
 
-- `config/kprm_keywords.json` - Numery aktów UE i słowa kluczowe do wyszukiwania w KPRM
-- `config/rcl_subject_tags.json` - Hasła przedmiotowe RCL (identyfikacja)
-- `config/projects.json` - Lista projektów do monitorowania (RCL + Sejm)
+**Implementacja:**
+- Scrapowanie strony wyszukiwania RCL: `https://legislacja.rcl.gov.pl/szukaj?typeId=1&typeId=2&activeTab=tab2`
+- Wypełnianie formularza wyszukiwania przy użyciu Playwright
+- Parsowanie wyników wyszukiwania z tabeli HTML
+- Automatyczne dodawanie znalezionych projektów do `config/projects.json`
 
-📖 **Szczegółowy przewodnik:** Zobacz [CONFIGURATION_GUIDE.md](CONFIGURATION_GUIDE.md)
+📖 **Szczegóły:** [TODO.md](TODO.md)
 
 ## Dokumentacja
 
-- **[USAGE.md](USAGE.md)** - Instrukcja użycia z wyjaśnieniem dlaczego tak a nie inaczej
-- **[CONFIGURATION_GUIDE.md](CONFIGURATION_GUIDE.md)** - Szczegółowy przewodnik konfiguracji
+- **[USAGE.md](USAGE.md)** - Instrukcja użycia
+- **[CONFIGURATION_GUIDE.md](CONFIGURATION_GUIDE.md)** - Przewodnik konfiguracji
 - **[TODO.md](TODO.md)** - Plan rozwoju systemu
 
 ## Wymagania
 
 - Python 3.8+
 - Zobacz `pyproject.toml` lub `requirements.txt` dla pełnej listy zależności
-
-## Testy
-
-```bash
-pytest
-pytest --cov=horizon_monitoring --cov-report=html
-```
 
 ## Licencja
 
