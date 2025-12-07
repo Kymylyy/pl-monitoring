@@ -41,13 +41,15 @@ python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
 
 ### Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych
 
-**Status:** W planach
+**Status:** W planach (obecnie nie działa)
 
 **Cel:** Wyszukiwanie projektów w RCL po:
 - Numerze i tytule aktu prawnego Unii Europejskiej (np. "2023/2225")
 - Numerze z wykazu prac legislacyjnych KPRM (np. "UD260", "UC2")
 
-**Implementacja:**
+**Uwaga:** Ta funkcjonalność nie jest jeszcze zaimplementowana, ponieważ wyszukiwanie w RCL po identyfikatorach zewnętrznych obecnie nie działa poprawnie.
+
+**Planowana implementacja:**
 - Scrapowanie strony wyszukiwania RCL: `https://legislacja.rcl.gov.pl/szukaj?typeId=1&typeId=2&activeTab=tab2`
 - Wypełnianie formularza wyszukiwania przy użyciu Playwright
 - Parsowanie wyników wyszukiwania z tabeli HTML
