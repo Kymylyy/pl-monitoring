@@ -51,6 +51,40 @@ python scripts/monitor_rcl_tags.py 2025-01-01 2025-12-31
 
 **To pierwszy poziom RCL** - identyfikacja projektów, które mogą być związane z tematem.
 
+### 2b. Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych (identyfikacja)
+
+```bash
+python scripts/search_rcl_projects.py 2025-01-01 2025-12-31
+```
+
+**Kiedy używać:** Chcesz znaleźć projekty w RCL po numerze aktu UE lub numerze z wykazu KPRM.
+
+**Konfiguracja:** `config/rcl_search_queries.json` - dodaj zapytania z:
+- `ue_act_number` - numer aktu UE (np. "2023/1114")
+- `kprm_number` - numer z wykazu KPRM (np. "UC82", "UD260")
+
+**Przykład konfiguracji:**
+```json
+{
+  "search_queries": [
+    {
+      "ue_act_number": "2023/1114",
+      "title": "MiCA",
+      "kprm_number": null
+    },
+    {
+      "ue_act_number": null,
+      "title": "Ustawa o kredycie konsumenckim",
+      "kprm_number": "UC82"
+    }
+  ]
+}
+```
+
+**Wyniki:** Zapis do `data/rcl_search_results_YYYY-MM-DD.json` w formacie gotowym do wklejenia do `config/projects.json`
+
+**To alternatywny sposób identyfikacji projektów RCL** - użyj gdy znasz numer aktu UE lub numer KPRM.
+
 ### 3. Monitoring konkretnych projektów RCL (monitoring)
 
 ```bash
@@ -85,13 +119,16 @@ Przykład: `2025-01-01`
 
 - **KPRM:** Zapis do `data/register_results.json` - lista projektów zawierających numery aktów UE/słowa kluczowe
 - **Tagi RCL:** Zapis do `data/financial_results.json` - lista aktów z określonym hasłem przedmiotowym
+- **Wyszukiwanie RCL:** Zapis do `data/rcl_search_results_YYYY-MM-DD.json` - lista projektów znalezionych po identyfikatorach zewnętrznych (format gotowy do wklejenia do `config/projects.json`)
 - **Projekty RCL/Sejm:** Automatyczna aktualizacja `config/projects.json` z polem `last_hit`
 - **Projekty Sejm:** Dodatkowo pole `referred_to` z pełnym przebiegiem procesu
 
 ## Typowy workflow
 
 1. **Identyfikacja w KPRM** - znajdź projekty implementujące konkretne akty UE (np. "2023/2225")
-2. **Identyfikacja w RCL** - użyj monitoringu tagów RCL, aby znaleźć projekty z określonym hasłem przedmiotowym
-3. **Dodaj do konfiguracji** - skopiuj ID/numer do `config/projects.json`
+2. **Identyfikacja w RCL** - użyj jednej z metod:
+   - **Monitoring tagów RCL** - znajdź projekty z określonym hasłem przedmiotowym
+   - **Wyszukiwanie po identyfikatorach** - znajdź projekty po numerze aktu UE lub numerze KPRM
+3. **Dodaj do konfiguracji** - skopiuj ID/numer do `config/projects.json` (lub użyj gotowego formatu z `rcl_search_results_*.json`)
 4. **Monitoruj zmiany** - uruchamiaj regularnie monitoring projektów RCL i Sejm
 5. **Śledź przebieg** - dla projektów Sejm sprawdzaj `referred_to` z pełnym przebiegiem procesu

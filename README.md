@@ -27,6 +27,9 @@ python scripts/analyze_kprm_register.py 2025-01-01 2025-12-31
 # 2. Monitoring aktów RCL po hasłach przedmiotowych (identyfikacja)
 python scripts/monitor_rcl_tags.py 2025-01-01 2025-12-31
 
+# 2b. Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych (identyfikacja)
+python scripts/search_rcl_projects.py 2025-01-01 2025-12-31
+
 # 3. Monitoring konkretnych projektów RCL (monitoring)
 python scripts/monitor_rcl_projects.py 2025-01-01 2025-12-31
 
@@ -37,25 +40,24 @@ python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
 📖 **Szczegółowa instrukcja:** [USAGE.md](USAGE.md)  
 📖 **Przewodnik konfiguracji:** [CONFIGURATION_GUIDE.md](CONFIGURATION_GUIDE.md)
 
-## Planowane funkcjonalności
+## Funkcjonalności
 
-### Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych
+### Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych ✅
 
-**Status:** W planach (obecnie nieobsługiwane przez RCL)
+**Status:** Zaimplementowane
 
 **Cel:** Wyszukiwanie projektów w RCL po:
-- Numerze i tytule aktu prawnego Unii Europejskiej (np. "2023/2225")
-- Numerze z wykazu prac legislacyjnych KPRM (np. "UD260", "UC2")
+- Numerze aktu prawnego Unii Europejskiej (np. "2023/1114")
+- Numerze z wykazu prac legislacyjnych KPRM (np. "UD260", "UC82")
 
-**Uwaga:** Ta funkcjonalność nie jest jeszcze zaimplementowana, ponieważ strona RCL obecnie nie obsługuje wyszukiwania po identyfikatorach zewnętrznych (pola formularza istnieją, ale wyszukiwanie nie zwraca wyników).
+**Użycie:**
+```bash
+python scripts/search_rcl_projects.py 2025-01-01 2025-12-31
+```
 
-**Planowana implementacja:**
-- Scrapowanie strony wyszukiwania RCL: `https://legislacja.rcl.gov.pl/szukaj?typeId=1&typeId=2&activeTab=tab2`
-- Wypełnianie formularza wyszukiwania przy użyciu Playwright
-- Parsowanie wyników wyszukiwania z tabeli HTML
-- Automatyczne dodawanie znalezionych projektów do `config/projects.json`
+**Konfiguracja:** `config/rcl_search_queries.json` - dodaj zapytania z numerami aktów UE i/lub numerami KPRM
 
-📖 **Szczegóły:** [TODO.md](TODO.md)
+**Szczegóły:** [USAGE.md](USAGE.md)
 
 ## Dokumentacja
 

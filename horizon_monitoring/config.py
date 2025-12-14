@@ -12,6 +12,7 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 PROJECTS_CONFIG = CONFIG_DIR / "projects.json"
 KPRM_KEYWORDS_CONFIG = CONFIG_DIR / "kprm_keywords.json"
 RCL_SUBJECT_TAGS_CONFIG = CONFIG_DIR / "rcl_subject_tags.json"
+RCL_SEARCH_QUERIES_CONFIG = CONFIG_DIR / "rcl_search_queries.json"
 
 # Backward compatibility - stare nazwy (deprecated)
 RCL_PROJECTS_CONFIG = PROJECTS_CONFIG
@@ -184,4 +185,16 @@ def load_keywords() -> Dict[str, List[str]]:
 def load_financial_tags() -> List[Dict[str, Any]]:
     """Deprecated: Użyj load_rcl_subject_tags()"""
     return load_rcl_subject_tags()
+
+
+def load_rcl_search_queries() -> List[Dict[str, Any]]:
+    """
+    Wczytuje zapytania wyszukiwawcze RCL (po numerze aktu UE lub numerze KPRM).
+    
+    Returns:
+        Lista zapytań, każdy to dict z 'ue_act_number', 'ue_act_title', 'kprm_number'
+        (wartości mogą być None)
+    """
+    config = load_config(RCL_SEARCH_QUERIES_CONFIG)
+    return config.get('search_queries', [])
 

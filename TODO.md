@@ -10,6 +10,7 @@ System Horizon Monitoring to kompleksowe narzędzie do monitorowania procesu leg
 - ✅ Monitoring konkretnych projektów po ID
 - ✅ Monitoring aktów prawnych po hasłach przedmiotowych (tagi)
 - ✅ Wykrywanie zmian w projektach w określonym zakresie dat
+- ✅ Wyszukiwanie projektów po identyfikatorach zewnętrznych (numer aktu UE, numer KPRM)
 
 ### 2. Monitoring Sejm
 - ✅ Monitoring konkretnych projektów po numerze druku
@@ -23,51 +24,41 @@ System Horizon Monitoring to kompleksowe narzędzie do monitorowania procesu leg
 
 ## Planowane rozszerzenia 🚀
 
-### 1. Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych
+### 1. Wyszukiwanie projektów RCL po identyfikatorach zewnętrznych ✅
 **Priorytet: Wysoki**  
-**Status: W trakcie implementacji**
+**Status: Zrealizowane**
 
 **Cel:** Umożliwienie wyszukiwania projektów w RCL po identyfikatorach zewnętrznych:
-- **Numer i tytuł aktu prawnego Unii Europejskiej** - znajdowanie projektów implementujących konkretne dyrektywy/rozporządzenia UE
+- **Numer aktu prawnego Unii Europejskiej** - znajdowanie projektów implementujących konkretne dyrektywy/rozporządzenia UE
 - **Numer z wykazu prac legislacyjnych** - łączenie projektów RCL z numerami z rejestru KPRM
 
-**Implementacja:**
-- Scrapowanie strony wyszukiwania RCL: `https://legislacja.rcl.gov.pl/szukaj?typeId=1&typeId=2&activeTab=tab2`
-- Wypełnianie formularza wyszukiwania przy użyciu Playwright:
-  - Pole "Numer i tytuł aktu prawnego Unii Europejskiej" (np. "2021/0241", "Dyrektywa 2021/0241")
-  - Pole "Numer z wykazu prac legislacyjnych" (np. "UD260", "UC2")
-- Parsowanie wyników wyszukiwania z tabeli HTML
-- Wyciąganie ID projektów z linków do szczegółów
-- Integracja z istniejącym systemem monitoringu projektów RCL
-- Automatyczne dodawanie znalezionych projektów do `config/projects.json`
+**Zaimplementowane:**
+- ✅ Scrapowanie strony wyszukiwania RCL: `https://legislacja.rcl.gov.pl/szukaj?typeId=1&typeId=2&activeTab=tab2`
+- ✅ Wypełnianie formularza wyszukiwania przy użyciu Playwright z optymalizacją (jedna przeglądarka dla wszystkich wyszukiwań)
+- ✅ Wyszukiwanie po numerze aktu UE (pole `UEActValue`)
+- ✅ Wyszukiwanie po numerze z wykazu KPRM (pole `number`)
+- ✅ Parsowanie wyników wyszukiwania z tabeli HTML
+- ✅ Wyciąganie ID projektów z linków do szczegółów
+- ✅ Zapis wyników w formacie gotowym do wklejenia do `config/projects.json`
+- ✅ Integracja z istniejącym systemem monitoringu projektów RCL
+
+**Użycie:**
+```bash
+python scripts/search_rcl_projects.py 2025-01-01 2025-12-31
+```
+
+**Konfiguracja:** `config/rcl_search_queries.json`
 
 **Korzyści:**
-- Automatyczne znajdowanie projektów implementujących dyrektywy UE po numerze aktu
-- Łączenie projektów RCL z rejestrem KPRM poprzez numer z wykazu
-- Pełniejszy obraz procesu legislacyjnego - możliwość śledzenia projektów od identyfikatora UE lub numeru KPRM
-- Ułatwienie identyfikacji projektów dla osób znających tylko numer UE lub KPRM
-
-**Struktura konfiguracji:**
-```json
-{
-  "search_queries": [
-    {
-      "ue_act_number": "2021/0241",
-      "ue_act_title": "Dyrektywa w sprawie rynku kryptoaktywów",
-      "kprm_number": null
-    },
-    {
-      "ue_act_number": null,
-      "ue_act_title": null,
-      "kprm_number": "UD260"
-    }
-  ]
-}
-```
+- ✅ Automatyczne znajdowanie projektów implementujących dyrektywy UE po numerze aktu
+- ✅ Łączenie projektów RCL z rejestrem KPRM poprzez numer z wykazu
+- ✅ Pełniejszy obraz procesu legislacyjnego - możliwość śledzenia projektów od identyfikatora UE lub numeru KPRM
+- ✅ Ułatwienie identyfikacji projektów dla osób znających tylko numer UE lub KPRM
+- ✅ Optymalizacja wydajności - jedna przeglądarka dla wszystkich wyszukiwań
 
 
 ## Status
 
-**Aktualna wersja:** 1.0.0  
-**Ostatnia aktualizacja:** 2025-12-07
+**Aktualna wersja:** 1.1.0  
+**Ostatnia aktualizacja:** 2025-12-14
 
