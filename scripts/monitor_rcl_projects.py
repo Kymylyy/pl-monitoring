@@ -18,8 +18,8 @@ from pathlib import Path
 # Dodaj główny katalog projektu do ścieżki
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from horizon_monitoring.monitors.rcl_project_monitor import RCLProjectMonitor
-from horizon_monitoring.utils.logger import get_logger
+from pl_monitoring.monitors.rcl_project_monitor import RCLProjectMonitor
+from pl_monitoring.utils.logger import get_logger
 
 logger = get_logger(__name__)
 

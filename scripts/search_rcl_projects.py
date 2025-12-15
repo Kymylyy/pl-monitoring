@@ -18,7 +18,7 @@ from pathlib import Path
 # Dodaj główny katalog projektu do ścieżki
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from horizon_monitoring.monitors.rcl_search_monitor import RCLSearchMonitor
+from pl_monitoring.monitors.rcl_search_monitor import RCLSearchMonitor
 
 
 def main():

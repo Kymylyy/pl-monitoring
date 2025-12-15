@@ -18,7 +18,7 @@ from pathlib import Path
 # Dodaj główny katalog projektu do ścieżki
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from horizon_monitoring.monitors.sejm_project_monitor import SejmProjectMonitor
+from pl_monitoring.monitors.sejm_project_monitor import SejmProjectMonitor
 
 
 def main():

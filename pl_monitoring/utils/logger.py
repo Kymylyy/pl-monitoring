@@ -7,7 +7,7 @@ from typing import Optional
 
 
 def setup_logger(
-    name: str = "horizon_monitoring",
+    name: str = "pl_monitoring",
     level: int = logging.INFO,
     log_file: Optional[Path] = None,
     format_string: Optional[str] = None
@@ -69,7 +69,7 @@ def get_logger(name: Optional[str] = None) -> logging.Logger:
         # Automatycznie wykryj nazwę modułu wywołującego
         import inspect
         frame = inspect.currentframe().f_back
-        module_name = frame.f_globals.get('__name__', 'horizon_monitoring')
+        module_name = frame.f_globals.get('__name__', 'pl_monitoring')
         name = module_name
     
     return logging.getLogger(name)

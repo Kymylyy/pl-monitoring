@@ -87,7 +87,7 @@ pl-monitoring/
 │   ├── search_rcl_projects.py
 │   ├── monitor_rcl_projects.py
 │   └── monitor_sejm_projects.py
-├── horizon_monitoring/     # Główny pakiet
+├── pl_monitoring/     # Główny pakiet
 │   ├── monitors/           # Klasy monitorujące różne źródła
 │   ├── fetchers/           # Pobieranie danych
 │   ├── analyzers/          # Analiza tekstowa
@@ -132,7 +132,7 @@ Pełna lista w `pyproject.toml` lub `requirements.txt`.
 pytest
 
 # Z pokryciem kodu
-pytest --cov=horizon_monitoring --cov-report=html
+pytest --cov=pl_monitoring --cov-report=html
 ```
 
 ## 📝 Format dat

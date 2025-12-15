@@ -20,8 +20,8 @@ from pathlib import Path
 # Dodaj główny katalog projektu do ścieżki
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from horizon_monitoring.analyzers.register_analyzer import RegisterAnalyzer
-from horizon_monitoring.config import load_kprm_keywords, REGISTER_RESULTS, KPRM_KEYWORDS_CONFIG
+from pl_monitoring.analyzers.register_analyzer import RegisterAnalyzer
+from pl_monitoring.config import load_kprm_keywords, REGISTER_RESULTS, KPRM_KEYWORDS_CONFIG
 
 
 def save_results(

@@ -12,7 +12,7 @@ from pathlib import Path
 # Dodaj główny katalog projektu do ścieżki
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from horizon_monitoring.fetchers.kprm_register import KPRMRegisterFetcher
+from pl_monitoring.fetchers.kprm_register import KPRMRegisterFetcher
 
 
 def main():

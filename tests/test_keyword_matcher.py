@@ -2,7 +2,7 @@
 
 import pytest
 
-from horizon_monitoring.analyzers.keyword_matcher import KeywordMatcher
+from pl_monitoring.analyzers.keyword_matcher import KeywordMatcher
 
 
 class TestKeywordMatcher:

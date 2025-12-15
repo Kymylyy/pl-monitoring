@@ -4,7 +4,7 @@ from datetime import datetime
 
 import pytest
 
-from horizon_monitoring.utils.date_utils import parse_date, parse_polish_date
+from pl_monitoring.utils.date_utils import parse_date, parse_polish_date
 
 
 class TestParsePolishDate:

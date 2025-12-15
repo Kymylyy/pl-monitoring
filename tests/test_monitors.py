@@ -5,9 +5,9 @@ from datetime import datetime
 from unittest.mock import Mock, patch, MagicMock
 from typing import List, Dict
 
-from horizon_monitoring.monitors.rcl_project_monitor import RCLProjectMonitor
-from horizon_monitoring.monitors.sejm_project_monitor import SejmProjectMonitor
-from horizon_monitoring.exceptions import RCLConnectionError, SejmConnectionError
+from pl_monitoring.monitors.rcl_project_monitor import RCLProjectMonitor
+from pl_monitoring.monitors.sejm_project_monitor import SejmProjectMonitor
+from pl_monitoring.exceptions import RCLConnectionError, SejmConnectionError
 
 
 class TestRCLProjectMonitor:
