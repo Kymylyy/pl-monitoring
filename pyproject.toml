@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "horizon-monitoring"
+name = "pl-monitoring"
 version = "1.0.0"
 description = "System monitoringu projektów legislacyjnych - RCL, Sejm i KPRM"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "Proprietary - All Rights Reserved"}
 authors = [
-    {name = "Horizon Monitoring Team"}
+    {name = "Kamil Mosoń"}
 ]
 keywords = ["monitoring", "legislacja", "rcl", "sejm", "kprm", "poland", "parliament"]
 classifiers = [

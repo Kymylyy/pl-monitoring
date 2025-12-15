@@ -1,4 +1,4 @@
-# Instrukcja użycia - Horizon Monitoring
+# Instrukcja użycia - PL Monitoring
 
 ## Szybki start
 

@@ -1,5 +1,5 @@
 """
-Horizon Monitoring - System monitoringu projektów legislacyjnych
+PL Monitoring - System monitoringu projektów legislacyjnych
 
 System do monitorowania zmian w projektach ustaw z RCL (Rządowy Proces Legislacyjny)
 oraz analizy rejestru prac legislacyjnych KPRM.

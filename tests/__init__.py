@@ -1,2 +1,2 @@
-"""Testy dla pakietu horizon_monitoring."""
+"""Testy dla pakietu pl_monitoring."""
 

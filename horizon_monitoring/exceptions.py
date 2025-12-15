@@ -1,27 +1,27 @@
-"""Własne wyjątki dla aplikacji Horizon Monitoring."""
+"""Własne wyjątki dla aplikacji PL Monitoring."""
 
 
-class HorizonMonitoringError(Exception):
+class PLMonitoringError(Exception):
     """Bazowy wyjątek dla wszystkich błędów aplikacji."""
     pass
 
 
-class ConfigurationError(HorizonMonitoringError):
+class ConfigurationError(PLMonitoringError):
     """Błąd konfiguracji - brak pliku, nieprawidłowy format, etc."""
     pass
 
 
-class DataFetchError(HorizonMonitoringError):
+class DataFetchError(PLMonitoringError):
     """Błąd podczas pobierania danych z zewnętrznego źródła."""
     pass
 
 
-class DataParseError(HorizonMonitoringError):
+class DataParseError(PLMonitoringError):
     """Błąd podczas parsowania danych."""
     pass
 
 
-class ValidationError(HorizonMonitoringError):
+class ValidationError(PLMonitoringError):
     """Błąd walidacji danych wejściowych."""
     pass
 

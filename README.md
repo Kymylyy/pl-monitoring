@@ -1,10 +1,10 @@
-# Horizon Monitoring
+# PL Monitoring
 
 System monitoringu projektów legislacyjnych w Polsce - śledzenie zmian w projektach ustaw od etapu KPRM, przez RCL, aż do Sejmu i decyzji Prezydenta.
 
 ## 📋 Opis
 
-Horizon Monitoring to kompleksowe narzędzie do automatycznego monitorowania procesu legislacyjnego w Polsce. System umożliwia:
+PL Monitoring to kompleksowe narzędzie do automatycznego monitorowania procesu legislacyjnego w Polsce. System umożliwia:
 
 - **Identyfikację projektów** implementujących konkretne akty prawne UE
 - **Wyszukiwanie projektów** w RCL po hasłach przedmiotowych lub identyfikatorach zewnętrznych
@@ -36,7 +36,7 @@ Horizon Monitoring to kompleksowe narzędzie do automatycznego monitorowania pro
 ```bash
 # Sklonuj repozytorium
 git clone <repository-url>
-cd horizon-monitoring
+cd pl-monitoring
 
 # Zainstaluj zależności
 pip install -e .
@@ -73,7 +73,7 @@ python scripts/monitor_sejm_projects.py 2025-01-01 2025-12-31
 ## 🏗️ Struktura projektu
 
 ```
-horizon-monitoring/
+pl-monitoring/
 ├── config/                 # Pliki konfiguracyjne JSON
 │   ├── projects.json       # Lista projektów do monitorowania
 │   ├── kprm_keywords.json  # Numery aktów UE i słowa kluczowe
@@ -167,4 +167,4 @@ Proprietary - All Rights Reserved
 
 ## 👥 Autorzy
 
-Horizon Monitoring Team
+Kamil Mosoń
