@@ -46,3 +46,7 @@ debug_*.png
 .DS_Store
 Thumbs.db
 
+# Temporary files
+*.tmp
+*.bak
+
